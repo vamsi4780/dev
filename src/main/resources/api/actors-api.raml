@@ -1,0 +1,12 @@
+#%RAML 1.0
+title: actors-api
+types:
+  data: !include get-ex-dt/dataType.raml
+/actors:
+  get:
+   responses:
+      200:
+        body:
+          application/json:
+            example: !include get-ex-dt/example.json
+            type: data

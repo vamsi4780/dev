@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="getactorFlow" doc:id="47062a13-2545-491e-99e0-2dc37e309fc2" >
+		<db:select doc:name="Select" doc:id="0350274a-4680-4a6f-bce2-b54b2f9d83e8" config-ref="Database_Config">
+			<db:sql >SELECT * FROM sakila.actor;</db:sql>
+		</db:select>
+		<ee:transform doc:name="Transform Message" doc:id="e25a79db-0932-4798-bfc0-df2c3d795321" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="51417f5a-dfde-412e-95a0-c8c63350f64a" message="#[payload]"/>
+	</flow>
+</mule>

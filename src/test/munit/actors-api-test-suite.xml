@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="actors-api-test-suite.xml" />
+	<munit:test name="actors-api-test-suite-get:\actors:actors-api-configTest" doc:id="4ca50926-7bf3-434e-9d00-f440cce04053" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\actors:actors-api-config" doc:id="af16d6bd-9f00-4355-a94b-f4153e8c0478" name="get:\actors:actors-api-config"/>
+		</munit:execution>
+	</munit:test>
+
+
+</mule>
